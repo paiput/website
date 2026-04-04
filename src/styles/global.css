@@ -1,0 +1,44 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-nunito: 'Nunito Sans', sans-serif;
+  --font-bree-serif: 'Bree Serif', serif;
+
+  --color-background: #0f0f0f;
+  --color-foreground: #ffffff;
+  --color-secondary-foreground: #989292;
+  --color-link: #989292;
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-nunito-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-bree-serif);
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.125rem;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 1rem;
+}

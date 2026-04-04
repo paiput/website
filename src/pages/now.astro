@@ -1,0 +1,53 @@
+---
+import * as now from '../content/now/now.md'
+import Layout from '../layouts/Layout.astro'
+---
+
+<Layout title="Now - Lucas Piputto" route="/now">
+  <h1>Now</h1>
+
+  <ul
+    class="flex gap-4 mt-6 font-bree-serif"
+    style="list-style: none; padding-left: 0;"
+  >
+    <li>
+      <a class="hover:underline" href="/">/~</a>
+    </li>
+    <!-- <li>•</li> -->
+    <!-- <li>
+      <a class="hover:underline" href="/projects">/projects</a>
+    </li> -->
+    <!-- <li>•</li>
+        <li>
+          <a class="hover:underline" href="/blogs">/blogs</a>
+        </li> -->
+  </ul>
+
+  <now.Content />
+
+  <p
+    class="text-secondary-foreground p-4 border text-center border-zinc-800 rounded"
+  >
+    This page is inspired by Derek Sivers' <a
+      class="text-foreground"
+      href="https://sivers.org/now"
+      target="_blank">/now page movement</a
+    >.
+  </p>
+</Layout>
+
+<style is:global>
+  p {
+    margin-top: 1rem;
+  }
+
+  ul {
+    margin-top: 1rem;
+    padding-left: 1.5rem;
+    list-style-type: disc;
+  }
+
+  li {
+    margin-top: 0.5rem;
+  }
+</style>
