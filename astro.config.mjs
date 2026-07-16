@@ -7,13 +7,25 @@ export default defineConfig({
   fonts: [
     {
       provider: fontProviders.fontsource(),
-      name: 'Bree Serif',
-      cssVariable: '--font-bree-serif',
+      name: 'Inter',
+      cssVariable: '--font-inter',
+      weights: ['400'],
     },
     {
       provider: fontProviders.fontsource(),
-      name: 'Nunito Sans',
-      cssVariable: '--font-nunito-sans',
+      name: 'Inter Tight',
+      cssVariable: '--font-inter-tight',
+      weights: ['700', '800', '900'],
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Geist',
+      cssVariable: '--font-geist',
+    },
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Geist Mono',
+      cssVariable: '--font-geist-mono',
     },
   ],
   vite: {

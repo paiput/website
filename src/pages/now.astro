@@ -3,19 +3,17 @@ import * as now from '../content/now/now.md'
 import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout title="Now - Lucas Piputto" route="/now">
+<Layout title="Now - Lucas Piputto">
   <article class="now-content">
-    <h1>Now</h1>
+    <h1 class="text-5xl mt-9 mb-6 font-geist font-semibold">Now</h1>
 
-    <now.Content />
+    <div class="border-t border-secondary-foreground/20 pt-8">
+      <now.Content />
+    </div>
   </article>
 </Layout>
 
 <style>
-  .now-content :global(p) {
-    margin-top: 1rem;
-  }
-
   .now-content :global(ul) {
     margin-top: 1rem;
     padding-left: 1.5rem;

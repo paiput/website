@@ -2,25 +2,24 @@
 import { Font } from 'astro:assets'
 import '../styles/global.css'
 
-// const routes = ['/~', '/now'] as const
-const routes = {
-  '/~': '/',
-  '/now': '/now',
-}
-
 interface Props {
   title?: string
-  route?: keyof typeof routes
+  withHeader?: boolean
+  padded?: boolean
 }
 
-const { title = 'Lucas Piputto', route = '/~' } = Astro.props
+const {
+  title = 'Lucas Piputto',
+  withHeader = true,
+  padded = true,
+} = Astro.props
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
-    <Font cssVariable="--font-nunito-sans" />
-    <Font cssVariable="--font-bree-serif" />
+    <Font cssVariable="--font-geist-mono" />
+    <Font cssVariable="--font-inter-tight" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -29,25 +28,42 @@ const { title = 'Lucas Piputto', route = '/~' } = Astro.props
     <title>{title}</title>
   </head>
   <body>
-    <header class="py-4 bg-zinc-800">
-      <div class="max-w-prose mx-auto px-6">
-        {
-          Object.entries(routes).map(([key, value]) => (
-            <a
-              href={value}
-              class={`mr-4 text-sm font-mono ${
-                route === key ? 'text-zinc-200' : 'text-link'
-              }`}
-            >
-              {key}
-            </a>
-          ))
-        }
-      </div>
-    </header>
-    <div class="max-w-prose mx-auto py-8 px-6">
+    {
+      withHeader && (
+        <header class="bg-foreground text-background">
+          <nav>
+            <ul class="flex items-center justify-between px-6 md:justify-center gap-4 md:gap-32 flex-wrap">
+              <li>
+                <a
+                  href="/projects"
+                  class="font-geist-mono text-xs md:text-base"
+                >
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  class="block uppercase text-3xl leading-6 font-inter-tight font-bold -mb-0.5 select-none md:text-6xl md:leading-11.5"
+                >
+                  Lucas
+                  <br />
+                  Piputto
+                </a>
+              </li>
+              <li>
+                <a href="/now" class="font-geist-mono text-xs md:text-base">
+                  Now
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </header>
+      )
+    }
+    <main class={padded ? 'max-w-7xl mx-auto py-8 px-6' : null}>
       <slot />
-    </div>
+    </main>
   </body>
 </html>
 

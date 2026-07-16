@@ -2,30 +2,33 @@
 
 @theme {
   --font-nunito: 'Nunito Sans', sans-serif;
-  --font-bree-serif: 'Bree Serif', serif;
+  --font-inter-tight: 'Bree Serif', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+  --font-geist: 'Geist', sans-serif;
+  --font-geist-mono: 'Geist Mono', monospace;
 
-  --color-background: #0f0f0f;
-  --color-foreground: #ffffff;
+  --color-background: #fff;
+  --color-foreground: #000;
   --color-secondary-foreground: #989292;
-  --color-link: #989292;
+  --color-link: #999;
 }
 
 body {
   background-color: var(--color-background);
   color: var(--color-foreground);
-  font-family: var(--font-nunito-sans);
+  font-family: var(--font-inter);
 }
 
-h1,
+/* h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-bree-serif);
-}
+  font-family: var(--font-inter-tight);
+} */
 
-h1 {
+/* h1 {
   font-size: 2.25rem;
 }
 
@@ -35,10 +38,10 @@ h2 {
 
 h3 {
   font-size: 1.125rem;
-}
-
+} */
+/* 
 h4,
 h5,
 h6 {
   font-size: 1rem;
-}
+} */

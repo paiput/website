@@ -1,8 +1,68 @@
 ---
-import Home from '../components/Home.astro'
 import Layout from '../layouts/Layout.astro'
 ---
 
-<Layout>
-  <Home />
+<Layout withHeader={false} padded={false}>
+  <div class="h-screen flex items-center justify-center">
+    <div class="relative">
+      <div class="flex flex-col md:flex-row gap-8 md:gap-32">
+        <h1
+          class="text-6xl leading-11.5 md:text-9xl md:leading-24 font-inter-tight font-bold uppercase select-none"
+        >
+          Lucas<br />Piputto
+        </h1>
+        <div class="flex flex-col h-auto justify-between gap-8">
+          <p class="max-w-[22ch] text-sm/tight md:text-base/tight">
+            Building at Paisanos and studying Computer Science at University of
+            Buenos Aires
+          </p>
+          <nav>
+            <ul class="text-sm md:text-base">
+              <li>
+                <a href="/projects" class="font-geist-mono group"
+                  >Projects <span
+                    class="ease-out transition-[padding] duration-300 group-hover:pl-1 group-active:text-secondary-foreground"
+                    >→</span
+                  ></a
+                >
+              </li>
+              <li>
+                <a href="/now" class="font-geist-mono group"
+                  >Now <span
+                    class="ease-out transition-[padding] duration-300 group-hover:pl-1 group-active:text-secondary-foreground"
+                    >→</span
+                  ></a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="absolute -bottom-1/2 left-1/2 -translate-1/2">
+        <ul class="flex gap-8 text-xs md:text-base">
+          <li>
+            <a
+              href="https://github.com/paiput/"
+              target="_blank"
+              class="font-geist-mono text-link uppercase">GitHub</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/lucaspiputto/"
+              target="_blank"
+              class="font-geist-mono text-link uppercase">LinkedIn</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://x.com/paiput_/"
+              target="_blank"
+              class="font-geist-mono text-link uppercase">X</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </Layout>
