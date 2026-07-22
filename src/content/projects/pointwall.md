@@ -24,7 +24,7 @@ I joined the project as a developer and designer, contributing to the web applic
 
 I redesigned the user interface from scratch and helped transform the original static HTML page into a fully functional web application built with Next.js and Tailwind CSS.
 
-Together with one of my friends, I also implemented the map interface using <span class="bg-gray-100 px-1 text-sm">`google-map-react`</span> and googlep-maps-react-markers.
+Together with one of my friends, I also implemented the map interface using `google-map-react` and `googlep-maps-react-markers`.
 
 ![Screenshot of the "map" screen](../../../public/images/pointwall-map.webp)
 

@@ -150,4 +150,16 @@ const { Content } = await render(project)
   .project-entry__content :global(a) {
     color: var(--color-link);
   }
+  .project-entry__content :global(code) {
+    padding-inline: 0.25rem;
+    font-size: 0.875rem;
+  }
+  .project-entry__content :global(code:not(:has(.line))) {
+    background-color: var(--color-gray-100);
+  }
+  .project-entry__content :global(pre) {
+    margin-block: 1.5rem;
+    padding: 0.5rem;
+    /* border-radius: 0.375rem; */
+  }
 </style>
