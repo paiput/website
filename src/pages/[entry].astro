@@ -1,0 +1,153 @@
+---
+import { getCollection, render } from 'astro:content'
+import Layout from '../layouts/Layout.astro'
+
+export async function getStaticPaths() {
+  const projects = await getCollection('projects')
+
+  return projects.map((project) => ({
+    params: { entry: project.id },
+    props: { project },
+  }))
+}
+
+const { project } = Astro.props
+
+const { Content } = await render(project)
+---
+
+<Layout title={`${project.data.name} - Lucas Piputto`}>
+  <article class="project-entry">
+    <a href="/projects" class="project-entry__back">← Projects</a>
+
+    <header class="project-entry__header">
+      {
+        project.data.year && (
+          <span class="project-entry__year">{project.data.year}</span>
+        )
+      }
+      <h1 class="text-5xl font-geist font-semibold">{project.data.name}</h1>
+
+      {
+        project.data.description && (
+          <p class="project-entry__description">{project.data.description}</p>
+        )
+      }
+
+      {
+        (project.data.repository || project.data.url) && (
+          <ul class="project-entry__links">
+            {project.data.repository && (
+              <li>
+                <a
+                  href={project.data.repository}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Repository ↗
+                </a>
+              </li>
+            )}
+            {project.data.url && (
+              <li>
+                <a
+                  href={project.data.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Website ↗
+                </a>
+              </li>
+            )}
+          </ul>
+        )
+      }
+    </header>
+
+    <div class="project-entry__content">
+      <Content />
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .project-entry {
+    max-width: 65ch;
+    margin: 2.25rem auto 0;
+  }
+
+  .project-entry__back,
+  .project-entry__links a {
+    color: var(--color-link);
+    font-family: var(--font-geist-mono);
+    font-size: 0.75rem;
+  }
+
+  .project-entry__header {
+    margin-top: 2rem;
+    border-bottom: 1px solid
+      color-mix(in srgb, var(--color-secondary-foreground) 20%, transparent);
+    padding-bottom: 2rem;
+  }
+
+  .project-entry__year {
+    display: block;
+    margin-bottom: 0.75rem;
+    color: var(--color-secondary-foreground);
+    font-family: var(--font-geist-mono);
+    font-size: 0.875rem;
+  }
+
+  .project-entry__description {
+    max-width: 42rem;
+    margin-top: 1.5rem;
+    color: var(--color-secondary-foreground);
+  }
+
+  .project-entry__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .project-entry__links a:hover,
+  .project-entry__links a:focus-visible,
+  .project-entry__content :global(a:hover),
+  .project-entry__content :global(a:focus-visible) {
+    text-decoration: underline;
+  }
+
+  .project-entry__content {
+    padding-top: 2.5rem;
+  }
+
+  .project-entry__content :global(h2) {
+    margin-top: 2.5rem;
+    font-family: var(--font-geist);
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .project-entry__content :global(p),
+  .project-entry__content :global(ul),
+  .project-entry__content :global(ol) {
+    margin-top: 1rem;
+    line-height: 1.625;
+  }
+
+  .project-entry__content :global(ul),
+  .project-entry__content :global(ol) {
+    padding-left: 1.5rem;
+  }
+
+  .project-entry__content :global(ul) {
+    list-style: disc;
+  }
+  .project-entry__content :global(ol) {
+    list-style: decimal;
+  }
+  .project-entry__content :global(a) {
+    color: var(--color-link);
+  }
+</style>
